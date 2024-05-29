@@ -23,6 +23,16 @@
 *.config
 *.xml
 *.tbk
+*.png
+*.jpeg
+*.svg
+*.jpg
+*.gif
+*.ico
+*.php.back*
+*.html
+*.csv
+*.sh
 
 # dirs & files
 /bower_components/
