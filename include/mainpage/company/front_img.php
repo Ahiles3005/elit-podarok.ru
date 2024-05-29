@@ -1,0 +1,1 @@
+<img alt="companypic.png" src="/include/mainpage/company/trost-spaniel-d-AZS011TP43EKO-03-d-1200x800.jpg" title="Elit-podarok.ru - Лучший выбор элитных подарков в Москве">

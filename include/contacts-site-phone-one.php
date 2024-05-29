@@ -1,0 +1,1 @@
+<a rel="nofollow" href="tel:+7 (495) 797-71-31" class="btn">Позвонить</a>
