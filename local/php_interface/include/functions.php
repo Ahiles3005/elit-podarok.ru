@@ -1730,3 +1730,20 @@ function setSeoData()
 }
 
 
+AddEventHandler("main", "OnEndBufferContent", "deleteKernelJs",1000);
+
+function deleteKernelJs(&$content) {
+    global $USER, $APPLICATION;
+
+    if((is_object($USER) && $USER->IsAuthorized()) || strpos($APPLICATION->GetCurDir(), "/bitrix/")!==false) return;
+
+    $arPatternsToRemove = Array(
+        '/<script.+?src=".+?\/json\/json2\.min\.js\?\d+"><\/script\>/',
+        '/<script.+?src=".+?\/json\/json2\.js\?\d+"><\/script\>/',
+    );
+
+    $content = preg_replace($arPatternsToRemove, "", $content);
+    $content = preg_replace("/\n{2,}/", "\n\n", $content);
+
+}
+

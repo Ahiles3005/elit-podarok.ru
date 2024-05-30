@@ -61,4 +61,11 @@ return array (
     ),
     'readonly' => true,
   ),
+    'analytics_counter' =>
+        array(
+            'value' =>
+                array(
+                    'enabled' => false,
+                ),
+        ),
 );
