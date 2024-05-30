@@ -147,11 +147,11 @@ function showLogo(){
 	else $text = '<a href="'.SITE_DIR.'">';
 
 	if($arImg = unserialize(\Bitrix\Main\Config\Option::get(CNext::moduleID, "LOGO_IMAGE", serialize(array()))))
-		$text .= '<img src="'.CFile::GetPath($arImg[0]).'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
+		$text .= '<img class="lazy" src="" data-src="'.CFile::GetPath($arImg[0]).'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
 	elseif(CNext::checkContentFile(SITE_DIR.'/include/logo_svg.php'))
 		$text .= File::getFileContents($_SERVER['DOCUMENT_ROOT'].SITE_DIR.'/include/logo_svg.php');
 	else
-		$text .= '<img src="'.$arTheme["LOGO_IMAGE"].'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
+		$text .= '<img class="lazy" src="" data-src="'.$arTheme["LOGO_IMAGE"].'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
 
 	if(!$isIndex) $text .= '</a>';
 
@@ -1728,3 +1728,5 @@ function setSeoData()
         $APPLICATION->SetTitle($h1);
     }
 }
+
+

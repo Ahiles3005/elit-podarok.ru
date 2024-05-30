@@ -35,6 +35,7 @@ class CNext{
 		global $APPLICATION, $arTheme;
 		$path = $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/page_blocks/'.$type.'_';
 		$file = null;
+
 		if(is_array($arTheme) && $arTheme)
 		{
 			switch($type):
@@ -1663,16 +1664,20 @@ class CNext{
 			if($arTheme['USE_REGIONALITY'] == 'Y')
 				$arRegion = CNextRegionality::getCurrentRegion(); //get current region from regionality module
 
-			if(!$arTheme['FONT_STYLE'] || !self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']])
-				$font_family = 'Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,500,600,700,800&subset=latin,cyrillic-ext';
-			else
-				$font_family = self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']]['LINK'];
+//			if(!$arTheme['FONT_STYLE'] || !self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']])
+//				$font_family = 'Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,500,600,700,800&subset=latin,cyrillic-ext';
+//			else
+//				$font_family = self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']]['LINK'];
 
 
-			if(!$arTheme['CUSTOM_FONT'])
-				$APPLICATION->SetAdditionalCSS((CMain::IsHTTPS() ? 'https' : 'http').'://fonts.googleapis.com/css?family='.$font_family);
-			else
-				$APPLICATION->AddHeadString('<'.$arTheme['CUSTOM_FONT'].'>');
+//			if(!$arTheme['CUSTOM_FONT'])
+//				$APPLICATION->SetAdditionalCSS((CMain::IsHTTPS() ? 'https' : 'http').'://fonts.googleapis.com/css?family='.$font_family);
+//			else
+//				$APPLICATION->AddHeadString('<'.$arTheme['CUSTOM_FONT'].'>');
+
+            if($arTheme['CUSTOM_FONT']){
+                $APPLICATION->AddHeadString('<'.$arTheme['CUSTOM_FONT'].'>');
+            }
 
 			$APPLICATION->SetPageProperty('viewport', 'initial-scale=1.0, width=device-width');
 			$APPLICATION->SetPageProperty('HandheldFriendly', 'true');
@@ -1680,7 +1685,8 @@ class CNext{
 			$APPLICATION->SetPageProperty('apple-mobile-web-app-status-bar-style', 'black');
 			$APPLICATION->SetPageProperty('SKYPE_TOOLBAR', 'SKYPE_TOOLBAR_PARSER_COMPATIBLE');
 
-			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/css/bootstrap.css');
+//			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/css/bootstrap.css');
+			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/css/bootstrap.min.css');
 			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/jquery.fancybox.css');
 			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/styles.css');
 
@@ -1689,8 +1695,8 @@ class CNext{
 
 			$APPLICATION->SetAdditionalCSS(((Option::get('main', 'use_minified_assets', 'N', $siteID) === 'Y') && file_exists($_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/css/media.min.css')) ? SITE_TEMPLATE_PATH.'/css/media.min.css' : SITE_TEMPLATE_PATH.'/css/media.css', true);
 
-			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/fonts/font-awesome/css/font-awesome.min.css', true);
-			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/print.css', true);
+			//$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/fonts/font-awesome/css/font-awesome.min.css', true);
+//			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/print.css', true);
 			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/animation/animation_ext.css');
 			$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/vendor/css/footable.standalone.min.css');
 
@@ -1772,6 +1778,49 @@ class CNext{
 			$APPLICATION->IncludeFile(SITE_DIR.'include/error_include_module.php', Array(), Array()); die();
 		}
 	}
+
+    public static function EndCss($siteID)
+    {
+        global $APPLICATION;
+
+
+        if (CModule::IncludeModuleEx(self::moduleID) == 1) {
+            self::UpdateFrontParametrsValues(); //update theme values
+
+            self::GenerateThemes($siteID); //generate theme.css and bgtheme.css
+            $arTheme = self::GetFrontParametrsValues($siteID); //get site options
+
+            if ( ! $arTheme['FONT_STYLE'] || ! self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']]) {
+                $font_family = 'Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,500,600,700,800&subset=latin,cyrillic-ext';
+            } else {
+                $font_family = self::$arParametrsList['MAIN']['OPTIONS']['FONT_STYLE']['LIST'][$arTheme['FONT_STYLE']]['LINK'];
+            }
+
+            if ( ! $arTheme['CUSTOM_FONT']) {
+                echo '<link href="'.(CMain::IsHTTPS() ? 'https' : 'http').'://fonts.googleapis.com/css?family='.$font_family.'&display=fallback"  data-template-style="true"  rel="stylesheet" />';
+            }
+
+//            echo '<link href="'.SITE_TEMPLATE_PATH.'/vendor/css/bootstrap.min.css"  data-template-style="true"  rel="stylesheet" />';
+//            echo '<link href="'.SITE_TEMPLATE_PATH.'/style.css"  data-template-style="true"  rel="stylesheet" />';
+
+//            echo '<pre style="display:none">';
+//            var_dump($APPLICATION->arHeadAdditionalCSS);
+//            var_dump($APPLICATION->sPath2css);
+//            echo '</pre>';
+
+//            <link href="/local/templates/aspro_next/styles.css?166444353112149"  data-template-style="true"  rel="stylesheet" />
+//<link href="/local/templates/aspro_next/template_styles.css?1665782529564968"  data-template-style="true"  rel="stylesheet" />
+
+
+
+            echo '<link href="'.SITE_TEMPLATE_PATH.'/vendor/fonts/font-awesome/css/font-awesome.min.css"  data-template-style="true"  rel="stylesheet" />';
+            $media = ((Option::get('main', 'use_minified_assets', 'N', $siteID) === 'Y') && file_exists($_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/css/media.min.css')) ? SITE_TEMPLATE_PATH.'/css/media.min.css' : SITE_TEMPLATE_PATH.'/css/media.css';
+            //echo '<link href="'.$media.'"  data-template-style="true"  rel="stylesheet" />';
+
+            return true;
+        }
+    }
+
 
 	public static function checkBgImage($siteID){
 		global $APPLICATION, $arRegion, $arTheme;
@@ -2168,11 +2217,11 @@ class CNext{
 		$arTheme = self::GetFrontParametrsValues(SITE_ID);
 		$text = '<a href="'.SITE_DIR.'">';
 		if($arImg = unserialize(Option::get(self::moduleID, "LOGO_IMAGE", serialize(array()))))
-			$text .= '<img src="'.CFile::GetPath($arImg[0]).'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
+			$text .= '<img class="lazy" src="" data-src="'.CFile::GetPath($arImg[0]).'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" data-type="lazy"/>';
 		elseif(self::checkContentFile(SITE_DIR.'/include/logo_svg.php'))
 			$text .= File::getFileContents($_SERVER['DOCUMENT_ROOT'].SITE_DIR.'/include/logo_svg.php');
 		else
-			$text .= '<img src="'.$arTheme["LOGO_IMAGE"].'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" />';
+			$text .= '<img class="lazy" src="" data-src="'.$arTheme["LOGO_IMAGE"].'" alt="'.$arSite["SITE_NAME"].'" title="'.$arSite["SITE_NAME"].'" data-type="lazy" />';
 		$text .= '</a>';
 
 		return $text;

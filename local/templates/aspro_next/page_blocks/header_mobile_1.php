@@ -9,7 +9,9 @@ $logoClass = ($arTheme['COLORED_LOGO']['VALUE'] !== 'Y' ? '' : ' colored');
 	</div>
 	<div class="logo-block pull-left">
 		<div class="logo<?=$logoClass?>">
-            <a href="/"><img src="/images/logologo.png" alt="elit-podarok.ru" title="elit-podarok.ru" style="max-height: 40px;max-width: 50px;"></a>
+            <a href="/">
+                <img class="lazy" src="" data-src="/images/logologo.png" alt="elit-podarok.ru" title="elit-podarok.ru" style="max-height: 40px;max-width: 50px;">
+            </a>
 		</div>
 	</div>
 	<div class="right-icons pull-right">

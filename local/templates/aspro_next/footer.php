@@ -71,5 +71,6 @@
 		CNext::showFooterBasket();?>
 
         <?php setSeoData();?>
+        <?php CNext::EndCss(SITE_ID);?>
 	</body>
 </html>
