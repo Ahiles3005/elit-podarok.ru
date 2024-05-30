@@ -13,7 +13,7 @@
                 <?foreach($arResult['SECTIONS'] as $arSection):
                     $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
                     $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_SECTION_DELETE_CONFIRM')));?>
-                    <span class="callback-block animate-load twosmallfont colored  white btn-default btn custom-btn" id="<?=$this->GetEditAreaId($arSection['ID']);?>">
+                    <span class="callback-block twosmallfont white btn-default btn custom-btn" id="<?=$this->GetEditAreaId($arSection['ID']);?>">
                         <a href="<?=$arSection['SECTION_PAGE_URL'];?>"><?=$arSection['NAME'];?></a>
                     </span>
                 <?endforeach;?>
