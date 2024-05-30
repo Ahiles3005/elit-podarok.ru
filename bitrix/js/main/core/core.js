@@ -1430,7 +1430,7 @@ BX.bind = function(el, evname, func)
 
 	if (el.addEventListener) // Gecko / W3C
 	{
-		el.addEventListener(evname, func, false);
+		el.addEventListener(evname, func, {passive: true});
 	}
 	else if (el.attachEvent) // IE
 	{
