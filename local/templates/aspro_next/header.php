@@ -36,7 +36,6 @@ $curPage = $APPLICATION->GetCurPage(); // Получаем текущий адр
 		CNext::Start(SITE_ID);?>
     <meta name="facebook-domain-verification" content="nj8y3wceyukft2o2akxijxgl7l73nl" />
     <meta name="google-site-verification" content="uHPX1ud8urQMVVy1C21nYaN1YL79uN6ecCSSlrGEeb4" />
-<script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1468736-7wyIS"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1468736-7wyIS" style="position:fixed; left:-999px;" alt=""/></noscript>
 
 </head>
 <body class="<?=($bIncludedModule ? "fill_bg_".strtolower(CNext::GetFrontParametrValue("SHOW_BG_BLOCK")) : "");?>" id="main">

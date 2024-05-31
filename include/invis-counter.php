@@ -1,6 +1,5 @@
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
 
+<script type="text/javascript" >
 
    let fired = false;
 
@@ -22,12 +21,24 @@
                    webvisor:true,
                    ecommerce:"dataLayer"
                });
+
+
+
+
+               !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-1468736-7wyIS"),VK.Retargeting.Hit()},document.head.appendChild(t)}();
+
+
            }, 1000)
        }
    });
 
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/56950879" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+
+
+<script type="text/javascript">
+</script>
+<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1468736-7wyIS" style="position:fixed; left:-999px;" alt=""/></noscript>
+
 
 

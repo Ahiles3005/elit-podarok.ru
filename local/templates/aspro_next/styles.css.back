@@ -113,7 +113,7 @@ table[data-bx-no-border="Y"] td { border: 0px; border-bottom: 1px dotted #c3c3c3
 .fa.big-icon.s30 { height: 30px; width: 30px;  line-height: 30px; font-size: 17px; }
 .fa.big-icon.s25 { height: 25px; width: 25px;  line-height: 25px; font-size: 13px; }
 
-/* .icon-text /info/more/icons/ */ 
+/* .icon-text /info/more/icons/ */
 .icon-text { padding: 0 20px; height: 54px; line-height: 54px;  display: inline-block;  border-radius: 27px; white-space: nowrap;  }
 .icon-text .fa { font-size: 30px; margin-top: -7px; vertical-align: middle; margin-right: 10px; }
 

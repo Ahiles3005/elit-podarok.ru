@@ -1194,9 +1194,9 @@ body .soc-avt .row a{display:inline-block;margin: 5px 11px 5px 0px;}
 	.inline-search-block.fixed{position:fixed;z-index: 997;background:#fff !important;}
 	.inline-search-block.fixed .search-wrapper{padding:0px;display: inline-block;width: 100%;}
 	.inline-search-block.fixed .search-wrapper #title-search{padding:14px 0px 15px;}
-	
+
 	body .xzoom-source, body .xzoom-hidden, body .xzoom-preview{z-index:995;}
-	
+
 	.inline-search-block.fixed.big{background:#fff !important;top:-200px;z-index:3000;transition-duration: 0.5s;}
 	.inline-search-block.fixed.big.show{top:0px;}
 	.inline-search-block.fixed.big .search-wrapper #title-search{padding:0px;}
@@ -1204,9 +1204,9 @@ body .soc-avt .row a{display:inline-block;margin: 5px 11px 5px 0px;}
 	.inline-search-block.fixed.big .search .search-button-div{top: 45px;}
 	.inline-search-block.fixed.big .search .btn-search{color:#fff;padding:12px 25px;font-size:1em;}
 	.inline-search-block.fixed.big .search .close-block{min-width:16px;}
-	
+
 	.inline-search-block.with-close.fixed.big .search .close-block{top: 6px;}
-	
+
 	#headerfixed{opacity:1;transition: top 300ms linear;background:#fff;display:block;position:fixed;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.136);top:-100px;
 	z-index: 996;right: 0;left: 0;}
 	#headerfixed.fixed{opacity:1;display:block;}
@@ -1246,7 +1246,7 @@ body .soc-avt .row a{display:inline-block;margin: 5px 11px 5px 0px;}
 	#headerfixed .search-button-div .close-block{display:none;}
 	#headerfixed .js-basket-block{position:relative;}
 	#headerfixed .js-basket-block .count{top:-7px;}
-	
+
 	/* fixed v2*/
 	#headerfixed .logo-row.v2{display:table;}
 	#headerfixed .logo-row.v2 .logo-block{min-width: 215px;max-width:215px;}
@@ -1259,7 +1259,7 @@ body .soc-avt .row a{display:inline-block;margin: 5px 11px 5px 0px;}
 	#headerfixed .logo-row.v2 .svg.svg-basket  {margin:0px;}
 	#headerfixed .logo-row .basket-link .count{position:absolute;top:-8px;left:16px;box-shadow: 0px 0px 0px 2px #fff;}
 	#headerfixed .logo-row.v2 .basket-link .count{top:-5px;}
-	
+
 	#headerfixed .logo-row.v2 .basket-link .js-basket-block{width:34px;display: inline-block;text-align:left;min-height:27px;position:relative;}
 	#headerfixed .logo-row .basket-link .svg.svg-basket{ margin: 0px;}
 	#headerfixed .logo-row.v2 .basket-link{width: 73px;text-align: center;}
@@ -6791,4 +6791,4 @@ table.contacts-stores tr.item td:last-of-type{width:30%;}
 .logo_and_menu-row .phone-block.with_btn i {
 	width: 12px;
 	height: 12px;
-}	
+}
